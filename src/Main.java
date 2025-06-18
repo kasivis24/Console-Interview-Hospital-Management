@@ -1,11 +1,12 @@
-import com.interview.patientmanagementsystem.features.auth.register.RegisterView;
+
+
+import com.interview.patientmanagementsystem.features.menu.MainView;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
-
-        System.out.println("Pateint App Starts");
-
-        RegisterView registerView = new RegisterView();
-        registerView.init();
+    public static void main(String[] args) throws IOException, SQLException {
+        new MainView().start();
     }
 }
