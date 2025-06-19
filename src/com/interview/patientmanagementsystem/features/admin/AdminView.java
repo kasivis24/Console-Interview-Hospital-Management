@@ -1,9 +1,6 @@
 package com.interview.patientmanagementsystem.features.admin;
 
 import com.interview.patientmanagementsystem.data.db.AppDb;
-import com.interview.patientmanagementsystem.data.dto.Doctor;
-import com.interview.patientmanagementsystem.data.dto.Receptionist;
-import com.interview.patientmanagementsystem.data.type.AvailableType;
 import com.interview.patientmanagementsystem.features.auth.register.ReceptionistRegisterView;
 import com.interview.patientmanagementsystem.features.baseview.BaseView;
 

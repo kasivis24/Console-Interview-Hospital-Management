@@ -13,13 +13,20 @@ public class AdminModel {
         this.db = db;
     }
 
+
     public void addDoctor() {
         try {
             Doctor doctor = new Doctor();
             doctor.setName(view.getInput("Enter name"));
             doctor.setPhone(view.getInput("Enter phone"));
             doctor.setSpecialization(view.getInput("Enter specialization"));
-            doctor.setAvailabilityType(AvailableType.valueOf(view.getInput("Availability (MORNING, AFTERNOON, SPECIFIC_HOURS)").toUpperCase()));
+            AvailableType type = AvailableType.valueOf(view.getInput("Availability (MORNING, AFTERNOON, SPECIFIC_HOURS)").toUpperCase());
+            doctor.setAvailabilityType(type);
+
+            if (type == AvailableType.SPECIFIC_HOURS) {
+                doctor.setStartTime(view.getInput("Enter start time (HH:mm)"));
+                doctor.setEndTime(view.getInput("Enter end time (HH:mm)"));
+            }
 
             db.addDoctor(doctor);
             view.showMessage("Doctor added successfully.");

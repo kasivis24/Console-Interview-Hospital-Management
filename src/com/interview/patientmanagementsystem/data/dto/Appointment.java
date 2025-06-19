@@ -25,4 +25,15 @@ public class Appointment {
     public void setPatientId(int patientId) { this.patientId = patientId; }
     public String getDateTime() { return dateTime; }
     public void setDateTime(String dateTime) { this.dateTime = dateTime; }
+
+
+    @Override
+    public String toString() {
+        return String.format("%-10s %-15s %-15s %-20s",
+                "ApptID: " + id,
+                "DoctorID: " + doctorId,
+                "PatientID: " + patientId,
+                "DateTime: " + dateTime);
+    }
+
 }
