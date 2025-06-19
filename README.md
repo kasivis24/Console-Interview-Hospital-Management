@@ -39,34 +39,23 @@ cd patient-management-system
 
 2. Create MySQL database:
 ```sql
-CREATE DATABASE patient_management;
+CREATE DATABASE carplus;
 ```
 
-3. Update database configuration:
-Edit `src/com/interview/patientmanagementsystem/config/DatabaseConfig.java` and update the following:
-- URL: Your MySQL database URL
-- USER: Your MySQL username
-- PASSWORD: Your MySQL password
-
-4. Build the project:
+3. Build the project:
 ```bash
 mvn clean package
 ```
 
-5. Run the application:
+4. Run the application:
 ```bash
 java -jar target/patient-management-system-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-## Default Admin Credentials
-
-- Username: admin
-- Password: admin123
-
 ## Database Schema
 
 The application uses the following tables:
-- users: Stores admin and receptionist accounts
+- receptionist: Store receptionist accounts
 - patients: Stores patient information
 - doctors: Stores doctor information
 - appointments: Stores appointment details
@@ -74,8 +63,7 @@ The application uses the following tables:
 ## Project Structure
 
 - `config`: Database configuration and schema
-- `dao`: Data Access Objects for database operations
-- `service`: Business logic layer
+- `model`: Model is for write the business logic
 - `data/dto`: Data Transfer Objects
 - `features`: View and controller classes
 - `utils`: Utility classes
