@@ -2,6 +2,15 @@
 
 A Java console-based application for managing patients, doctors, and appointments in a clinic setting.
 
+
+## ER Diagram
+
+- Image ref
+- ![image](https://github.com/user-attachments/assets/cb0c916e-c673-4298-8dd4-d5164d4f28c8)
+
+
+https://dbdiagram.io/d/68539b32f039ec6d36e92bff
+
 ## Features
 
 - Admin functionality:
