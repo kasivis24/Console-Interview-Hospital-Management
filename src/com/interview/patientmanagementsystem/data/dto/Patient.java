@@ -14,4 +14,11 @@ public class Patient {
     public void setAge(int age) { this.age = age; }
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    @Override
+    public String toString() {
+        return String.format("%-5d %-20s %-5d %-15s",
+                id, name, age, phone);
+    }
+
 }

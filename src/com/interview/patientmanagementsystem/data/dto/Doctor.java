@@ -24,4 +24,12 @@ public class Doctor {
     public void setStartTime(String startTime) { this.startTime = startTime; }
     public String getEndTime() { return endTime; }
     public void setEndTime(String endTime) { this.endTime = endTime; }
+
+
+    @Override
+    public String toString() {
+        return String.format("%-5d %-20s %-15s %-20s %-20s",
+                id, name, phone, specialization, availabilityType);
+    }
+
 }
