@@ -6,7 +6,7 @@ public abstract class BaseView {
         System.exit(0);
     }
 
-    protected void inVaildation(){
+    protected void inValid(){
         System.out.println("Enter the vaild inputs");
     }
 

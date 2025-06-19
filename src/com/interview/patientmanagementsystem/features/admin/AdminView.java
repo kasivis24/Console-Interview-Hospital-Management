@@ -4,18 +4,19 @@ import com.interview.patientmanagementsystem.data.db.AppDb;
 import com.interview.patientmanagementsystem.data.dto.Doctor;
 import com.interview.patientmanagementsystem.data.dto.Receptionist;
 import com.interview.patientmanagementsystem.data.type.AvailableType;
+import com.interview.patientmanagementsystem.features.auth.register.ReceptionistRegisterView;
 import com.interview.patientmanagementsystem.features.baseview.BaseView;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class AdminView extends BaseView {
+public class AdminView extends BaseView{
     private final Scanner scanner;
-    private final AppDb db;
+    private final AdminModel model;
 
     public AdminView(Scanner scanner, AppDb db) {
         this.scanner = scanner;
-        this.db = db;
+        this.model = new AdminModel(this, db);
     }
 
     public void adminMenu() throws SQLException {
@@ -24,33 +25,20 @@ public class AdminView extends BaseView {
         scanner.nextLine();
 
         switch (choice) {
-            case 1 -> addDoctor();
-            case 2 -> registerReceptionist();
-            case 3 -> removeReceptionist();
+            case 1 -> model.addDoctor();
+            case 2 -> new ReceptionistRegisterView(model.getDb(), scanner).register();
+            case 3 -> model.removeReceptionist();
+            case 4 -> System.out.println("Returning...");
+            default -> inValid();
         }
     }
 
-    private void addDoctor() throws SQLException {
-        System.out.println("========================= Add Doctor =====================");
-        Doctor d = new Doctor();
-        System.out.print("Name: "); d.setName(scanner.nextLine());
-        System.out.print("Phone: "); d.setPhone(scanner.nextLine());
-        System.out.print("Specialization: "); d.setSpecialization(scanner.nextLine());
-        System.out.print("Availability (MORNING, AFTERNOON, SPECIFIC_HOURS): ");
-        d.setAvailabilityType(AvailableType.valueOf(scanner.nextLine().toUpperCase()));
-        db.addDoctor(d);
+    public String getInput(String label) {
+        System.out.print(label + ": ");
+        return scanner.nextLine();
     }
 
-    private void registerReceptionist() throws SQLException {
-        System.out.println("========================= Receptionist Register =====================");
-        Receptionist r = new Receptionist();
-        System.out.print("Username: "); r.setUsername(scanner.nextLine());
-        System.out.print("Password: "); r.setPassword(scanner.nextLine());
-        db.registerReceptionist(r);
-    }
-
-    private void removeReceptionist() throws SQLException {
-        System.out.print("Enter Receptionist Username to Remove: ");
-        db.removeReceptionist(scanner.nextLine());
+    public void showMessage(String msg) {
+        System.out.println(msg);
     }
 }
