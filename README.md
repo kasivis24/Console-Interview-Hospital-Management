@@ -55,7 +55,7 @@ java -jar target/patient-management-system-1.0-SNAPSHOT-jar-with-dependencies.ja
 ## Database Schema
 
 The application uses the following tables:
-- users: Stores admin and receptionist accounts
+- receptionist: Store receptionist accounts
 - patients: Stores patient information
 - doctors: Stores doctor information
 - appointments: Stores appointment details
@@ -63,8 +63,7 @@ The application uses the following tables:
 ## Project Structure
 
 - `config`: Database configuration and schema
-- `dao`: Data Access Objects for database operations
-- `service`: Business logic layer
+- `model`: Model is for write the business logic
 - `data/dto`: Data Transfer Objects
 - `features`: View and controller classes
 - `utils`: Utility classes
